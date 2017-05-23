@@ -1,0 +1,33 @@
+<!-- I should see the details of user #1 along with all of his or her photos. Once done, add a link to the navbar that leads to the current user's show page. (This may lead to a problem when no one is signed in -- how can you fix it? Also, be careful where you add this route in routes.rb -- it needs to be below the line devise_for :users, otherwise it will conflict with /users/sign_in and /users/sign_up.) -->
+<div class="page-header">
+  <h3><%= @user.username %></h3>
+</div>
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Username</dt>
+      <dd><%= @user.username %></dd>
+
+      <dt>Email</dt>
+      <dd><%= @user.email %></dd>
+
+      <dt>User ID</dt>
+      <dd><%= @user.id %></dd>
+
+      <dt>Photos</dt>
+      <dd>
+        <ul class="list-group">
+          <% @user.photos.each do |photo| %>
+          <li class="list-group-item">
+            <img img src="<%= photo.image%>" width="100">
+            <%= photo.caption %>
+          </li>
+        <% end %>
+        </ul>
+      </dd>
+
+    </dl>
+
+
+  </div>
+</div>
