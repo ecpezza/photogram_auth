@@ -10,7 +10,7 @@
         <ul class="list-group">
           <% @user.likes.each do |like| %>
           <li class="list-group-item">
-            <img img src="<%= like.photo.image%>" width="100">
+            <img img src="<%= like.photo.image%>" class="img-responsive">
             <%= like.photo.caption %>
           </li>
         <% end %>

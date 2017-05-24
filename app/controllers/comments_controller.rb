@@ -24,10 +24,12 @@ class CommentsController < ApplicationController
     @comment.body = params[:body]
     @comment.user_id = params[:user_id]
 
-    save_status = @comment.save
-
-    if save_status == true
-      redirect_to("/comments/#{@comment.id}", :notice => "Comment created successfully.")
+    # save_status = @comment.save
+    #
+    # if save_status == true
+      # redirect_to("/comments/#{@comment.id}", :notice => "Comment created successfully at #{Time.now.to_f}.")
+    if @comment.save
+        redirect_to "/photos", :notice => "Comment created successfully at #{Time.now.to_f}."
     else
       render("comments/new.html.erb")
     end

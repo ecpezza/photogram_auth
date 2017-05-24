@@ -16,7 +16,19 @@ class UsersController < ApplicationController
     @user = current_user
 
     render("users/like.html.erb")
+  end
 
+  # to help with adding username to devise sign up form
+  def new
+    @user = User.new
+  end
+
+  def create
+    @user = User.new(params[:user])
+    if @user.save
+    else
+      render 'new'
+    end
   end
 
 end
