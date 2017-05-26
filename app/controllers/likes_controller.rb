@@ -63,7 +63,7 @@ class LikesController < ApplicationController
 
   def destroy
 
-    @like = Like.find(params[:ids])
+    @like = Like.find(params[:id])
 
     @like.destroy
 
